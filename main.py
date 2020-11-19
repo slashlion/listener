@@ -34,7 +34,11 @@ def img_txt(img):
         text = pytesseract.image_to_string(crop_img)
         large = len(text)
         txt = text.split()
-        txt = txt[0]+txt[2]
+
+        if len(txt) > 1:
+            txt = txt[0]+txt[2]
+            return txt
+
 
         # para llamar a la funcion usar:
         # path = 'images/example.jpg'
