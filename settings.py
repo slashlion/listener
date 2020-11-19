@@ -1,2 +1,6 @@
-api_id_1 = 2938979
-api_hash_1 = 'eb95f169bd42250485445fe978aef8d7'
+
+#pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\slash\\miniconda3\\envs\\receptor-mensajes\\Library\\bin\\tesseract.exe'
+
+api_id = 2351345  # Client's API ID
+api_hash = 'a1a55fcc6b88f4741e75b5b9e29210bb'  # Client's API hash
+phone_id = '+5491132305926'  # Client's phone

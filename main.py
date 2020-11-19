@@ -1,7 +1,7 @@
 
 
 #Imports
-from settings import api_id_1,api_hash_1
+from settings import api_id, api_hash, phone_id
 import telethon.sync
 from telethon.sync import TelegramClient
 from telethon import functions, types, events, utils
@@ -14,20 +14,11 @@ import re
 import pytesseract
 
 
-#Your api_id and api_hash
 
-# Main configuration
-config = {
-    'telegram': {
-        'api_id': 2938979, # Client's API ID
-        'api_hash': 'eb95f169bd42250485445fe978aef8d7', # Client's API hash
-        'phone_id': '+5491168492943' # Client's phone
-    }
-}
 
 def img_txt(img):
     try:
-        pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\adrian.leon\\Miniconda3\\envs\\receptor-mensajes\\Library\\bin\\tesseract.exe'
+        pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\slash\\miniconda3\\envs\\receptor-mensajes\\Library\\bin\\tesseract.exe'
         image = cv2.imread(img)
         image = cv2.resize(image, (500, 500))
         crop_img = image[300:450, 60:450]
@@ -48,33 +39,9 @@ def img_txt(img):
     except Exception as e:
         print("ERROR : ", e)
 
-client = TelegramClient('test8', config['telegram']['api_id'], config['telegram']['api_hash'])
 
 
-#async def main():
-    # Getting information about yourself
-    # me = await client.get_me()
-
-    # "me" is a user object. You can pretty-print
-    # any Telegram object with the "stringify" method:
-    # print(me.stringify())
-
-    # When you print something, you see a representation of it.
-    # You can access all attributes of Telegram objects with
-    # the dot operator. For example, to get the username:
-    # username = me.username
-    # print(username)
-    # print(me.phone)
-
-    # You can print all the dialogs/conversations that you are part of:
-    # async for dialog in client.iter_dialogs():
-    #     print(dialog.name, 'has ID', dialog.id)
-
-
-    # ...to some chat ID
-    # await client.send_message(-100123456, 'Hello, group!')
-
-
+client = TelegramClient('tes', api_id, api_hash)
 
 @client.on(events.NewMessage)
 async def my_event_handler(event):
@@ -114,7 +81,10 @@ async def my_event_handler(event):
                 #print(a)
                 await client.send_message(-1001265113337,  a)
 
+with client:
+    client.run_until_disconnected()
 
+'''
 
     #     print(a)
     #     if (len(a) == 12):
@@ -134,7 +104,5 @@ async def my_event_handler(event):
     #     print("estoy en la lista")
     #     print('chat id' ,chat_id)
     #     print(channels_info2)
+'''
 
-
-with client:
-    client.run_until_disconnected()

@@ -2,3 +2,6 @@ images/
 test*
 __pycache__/*
 .idea/*
+settings*
+/t.txt
+tes.*
