@@ -6,38 +6,16 @@ import telethon.sync
 from telethon.sync import TelegramClient
 from telethon import functions, types, events, utils
 from channels_ids import channels_info, channels_info2
+from modules.image_process import img_txt
 import os
 import sys
 import threading
-import cv2
+
 import re
-import pytesseract
+
 
 #prueba del clone
 
-
-def img_txt(img):
-    try:
-        pytesseract.pytesseract.tesseract_cmd = r'C:\\Users\\slash\\miniconda3\\envs\\receptor-mensajes\\Library\\bin\\tesseract.exe'
-        image = cv2.imread(img)
-        image = cv2.resize(image, (500, 500))
-        crop_img = image[300:450, 60:450]
-        text = pytesseract.image_to_string(crop_img)
-        large = len(text)
-        txt = text.split()
-
-        if len(txt) > 1:
-            txt = txt[0]+txt[2]
-            return txt
-
-
-        # para llamar a la funcion usar:
-        # path = 'images/example.jpg'
-        # print(img_txt(path))
-
-        return txt
-    except Exception as e:
-        print("ERROR : ", e)
 
 
 
