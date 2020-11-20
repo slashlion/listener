@@ -2,6 +2,7 @@ images/
 test*
 __pycache__/*
 .idea/*
-settings*
-/t.txt
+settings.py
+t.txt
 tes.*
+.idea/

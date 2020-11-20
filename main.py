@@ -13,7 +13,7 @@ import cv2
 import re
 import pytesseract
 
-
+#prueba del clone
 
 
 def img_txt(img):
